@@ -1,0 +1,15 @@
+exports.add=function(var1,var2){
+    console.log('result is ',var1+var2);
+}
+
+exports.subtract=function(var1,var2){
+    if(var1>=var2)
+        console.log('result is ',var1-var2);
+    else
+        console.log('result is ',var2-var1);
+}
+
+//tester code//
+var calculator=require('./calculation');
+calculator.subtract(5,7);
+calculator.add(4,5);
