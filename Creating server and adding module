@@ -1,0 +1,32 @@
+var http = require("http");
+var mod = require('./module.js')
+
+var server = http.createServer(function (request, response) {
+    response.writeHead(200, { "Content-Type": "text/html" });
+    var result1 = mod.sum(2, 5);
+    var result2 = mod.checkPrime(23);
+    console.log("Request received")
+    response.write("Result for Addition:" + result1 + "<br>");
+    response.write("Result for checking Prime Number:" + result2 + "<br>");
+    response.end("<html><body>The request URL is: " + request.url + "</body></html>");
+});
+
+server.listen(3000);
+console.log("Server is running at port 3000");
+
+
+//Module.JS File code//
+exports.sum=function(number1,number2){
+    return number1+number2;
+}
+exports.checkPrime=function(n){
+    var counter=0;
+    for(var i=0;i<=n;i++){
+        if(n%i==0)
+        counter++;
+    }
+    if(counter==2)
+    return true;
+    else
+    return false;
+}
