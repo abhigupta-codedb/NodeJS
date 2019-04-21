@@ -1,0 +1,26 @@
+//creating a module//
+
+exports.message=function(){
+    return "Hello Welcome to Node.js";
+}
+
+
+//creating a server and using a module in it.//
+
+
+
+var http = require("http");
+var mod = require('./module.js')
+
+var server = http.createServer(function (request, response) {
+    response.writeHead(200, { "Content-Type": "text/html" });
+    // var result1 = mod.sum(2, 5);
+    // var result2 = mod.checkPrime(23);
+    // console.log("Request received")
+    response.write(mod.message());
+    
+    
+});
+
+server.listen(3000);
+console.log("Server is running at port 3000");
