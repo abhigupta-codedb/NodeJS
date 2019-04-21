@@ -1,0 +1,14 @@
+http=require("http");
+url=require("url");
+querystring=require("querystring");
+function onRequest(request,response)
+{
+var query=url.parse(request.url).query; 
+var name=querystring.parse(query)["username"]; 
+var password=querystring.parse(query)["password"];
+response.writeHead(200,{"Content-Type":"text/html"});
+response.end("<html><body><h1>Hello "+name+"</h1><br><h2>your password is :"+password+"</h2></body></html>");
+}
+
+http.createServer(onRequest).listen(3000);
+console.log("server has started...");
