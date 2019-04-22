@@ -1,0 +1,29 @@
+var http=require("http"); 
+var module = require('./DBModule'); 
+querystring=require("querystring"); 
+var server= http.createServer( 
+function(request,response) { 
+data1= '';
+request.on('data', function(chunk) { data1 += chunk; }); 
+request.on('end', function() { 
+qs=querystring.parse(data1); 
+name=qs['username']; 
+password=qs['password']; 
+result=module.authenticateUser(name,password); 
+response.writeHead(200,{"Content-Type":"text/html"}); 
+response.end("<html><body><h1>"+result+"</h1></body></html>"); 
+});
+}); 
+server.listen(3000); 
+
+
+Line 3: querystring module is loaded.
+
+Line 7: Whenever the data flows in from the request object, data event gets fired and we are reading the data chunks and storing in a 
+temporary data1 variable inside the corresponding event handler function.
+
+Line 8: Whenever data fetching from the client in the server gets completed end event gets fired and we are getting the complete data 
+which is been submitted to the server inside the corresponding event handler function.
+
+Line 9: querystring.parse method is used to parse the incoming data and retrieve the parameter values.
+In this example we are getting username and password values using qs['username'] and qs['password'].
