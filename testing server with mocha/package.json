@@ -1,0 +1,16 @@
+{
+  "name": "testingserver",
+  "version": "1.0.0",
+  "description": "test cases for testing server",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "author": "Abhishek",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1"
+  }
+}
