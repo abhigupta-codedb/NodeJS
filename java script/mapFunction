@@ -1,0 +1,11 @@
+function fact(a){
+    if(a==1 || a==2)
+        return a;
+
+    return a*fact(a-1);
+}
+
+arr=[1,2,3];
+
+var val=arr.map(fact);
+console.log(val);
