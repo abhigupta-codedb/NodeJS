@@ -171,3 +171,70 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log('SF NodeApp listening on port ' + port);
 });
+
+
+####################################################
+payload request
+
+{
+  "nlp": {
+    "uuid": "6e643ac0-30d7-4dd8-8a06-3eb4a25920e9",
+    "intents": [
+      {
+        "slug": "leave_balance",
+        "confidence": 0.99,
+        "description": "User Leave Balance"
+      }
+    ],
+    "entities": {
+      "pronoun": [
+        {
+          "person": 1,
+          "number": "singular",
+          "gender": "unknown",
+          "raw": "I",
+          "confidence": 0.99
+        }
+      ],
+      "sickleave": [
+        {
+          "value": "sick",
+          "raw": "Sick",
+          "confidence": 0.71
+        }
+      ]
+    },
+    "language": "en",
+    "processing_language": "en",
+    "version": "1906.0.2",
+    "timestamp": "2019-09-07T09:00:23.446486 00:00",
+    "status": 200,
+    "source": "I want to know about My total Leave balance",
+    "act": "assert",
+    "type": null,
+    "sentiment": "vnegative"
+  },
+  "action_id": "cfdcd578-f5cb-4ffd-8e22-115a71867002",
+  "qna": {},
+  "conversation": {
+    "id": "test-1567846181945",
+    "conversation_id": "test-1567846181945",
+    "warning": "The conversation_id field will be depreciated on January 1st 2018! Switch to using the id field instead",
+    "language": "en",
+    "memory": {},
+    "skill_stack": [
+      "leave_balance"
+    ],
+    "skill": "leave_balance",
+    "skill_occurences": 5,
+    "participant_data": {}
+  }
+}
+
+##################################
+API Info.
+Please find the details for the below scenario.
+•	Leave Approved ? – OData to validate leave has been approved or not for Lalitha on specific date ( 20th Sep )
+
+URI : https://api10.successfactors.com/odata/v2/EmployeeTime?$filter=userId eq '10009' and timeType eq 'US_TT_Sick' and startDate eq '2019-05-14'
+
